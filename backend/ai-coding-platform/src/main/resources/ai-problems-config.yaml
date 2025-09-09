@@ -1,0 +1,1301 @@
+ai:
+  problems:
+    # ===== SIMPLE AI CODING CATEGORY (Easy-Medium) =====
+    linear-regression-basics:
+      title: "Linear Regression Implementation"
+      description: "Implement a basic linear regression model from scratch using gradient descent. Learn the fundamentals of supervised learning."
+      difficulty: "EASY"
+      category: "Simple AI Coding"
+      tags:
+        - "Linear Regression"
+        - "Gradient Descent"
+        - "Supervised Learning"
+      estimated-time: "30 min"
+      acceptance-rate: "75%"
+      test-cases:
+        - input: "X = [[1], [2], [3]], y = [2, 4, 6]"
+          expected: "slope ≈ 2, intercept ≈ 0"
+        - input: "X = [[1], [2], [3], [4]], y = [1, 3, 5, 7]"
+          expected: "slope ≈ 2, intercept ≈ -1"
+      starter-code: |
+        import numpy as np
+        
+        def linear_regression(X, y, learning_rate=0.01, epochs=1000):
+            """
+            Implement linear regression using gradient descent.
+            
+            Args:
+                X: Input features (n_samples, n_features)
+                y: Target values (n_samples,)
+                learning_rate: Learning rate for gradient descent
+                epochs: Number of training iterations
+            
+            Returns:
+                weights: Learned weights [slope, intercept]
+            """
+            # Your implementation here
+            pass
+    
+    k-means-clustering:
+      title: "K-Means Clustering Algorithm"
+      description: "Implement the K-means clustering algorithm to group data points into clusters. Understand unsupervised learning concepts."
+      difficulty: "EASY"
+      category: "Simple AI Coding"
+      tags:
+        - "K-Means"
+        - "Clustering"
+        - "Unsupervised Learning"
+      estimated-time: "45 min"
+      acceptance-rate: "68%"
+      test-cases:
+        - input: "points = [[1,1], [2,2], [8,8], [9,9]], k=2"
+          expected: "Two clusters: [(1,1), (2,2)] and [(8,8), (9,9)]"
+        - input: "points = [[0,0], [1,1], [5,5], [6,6], [10,10]], k=3"
+          expected: "Three distinct clusters"
+      starter-code: |
+        import numpy as np
+        import random
+        
+        def kmeans(points, k, max_iters=100):
+            """
+            Implement K-means clustering algorithm.
+            
+            Args:
+                points: List of data points
+                k: Number of clusters
+                max_iters: Maximum iterations
+            
+            Returns:
+                centroids: Final cluster centers
+                clusters: Point assignments
+            """
+            # Your implementation here
+            pass
+    
+    decision-tree-basic:
+      title: "Simple Decision Tree"
+      description: "Build a basic decision tree classifier for binary classification. Learn about tree-based algorithms."
+      difficulty: "MEDIUM"
+      category: "Simple AI Coding"
+      tags:
+        - "Decision Tree"
+        - "Classification"
+        - "Tree Algorithms"
+      estimated-time: "60 min"
+      acceptance-rate: "55%"
+      test-cases:
+        - input: "features = [[0,0], [1,1]], labels = [0, 1]"
+          expected: "Tree that separates classes correctly"
+        - input: "features = [[1,2], [2,1], [3,3]], labels = [0, 0, 1]"
+          expected: "Multi-level decision tree"
+      starter-code: |
+        class DecisionNode:
+            def __init__(self, feature=None, threshold=None, left=None, right=None, value=None):
+                self.feature = feature
+                self.threshold = threshold
+                self.left = left
+                self.right = right
+                self.value = value
+        
+        def build_tree(X, y, max_depth=5):
+            """
+            Build a decision tree for binary classification.
+            
+            Args:
+                X: Feature matrix
+                y: Target labels
+                max_depth: Maximum tree depth
+            
+            Returns:
+                root: Root node of the decision tree
+            """
+            # Your implementation here
+            pass
+    
+    naive-bayes-classifier:
+      title: "Naive Bayes Text Classifier"
+      description: "Implement a Naive Bayes classifier for text classification. Learn probabilistic machine learning."
+      difficulty: "MEDIUM"
+      category: "Simple AI Coding"
+      tags:
+        - "Naive Bayes"
+        - "Text Classification"
+        - "Probabilistic ML"
+      estimated-time: "50 min"
+      acceptance-rate: "62%"
+      test-cases:
+        - input: "texts = ['good movie', 'bad film'], labels = ['positive', 'negative']"
+          expected: "Classifier that predicts sentiment"
+        - input: "texts = ['spam offer', 'hello friend'], labels = ['spam', 'ham']"
+          expected: "Email spam classifier"
+      starter-code: |
+        from collections import defaultdict
+        import math
+        
+        class NaiveBayesClassifier:
+            def __init__(self):
+                self.class_probs = {}
+                self.word_probs = defaultdict(dict)
+                self.vocab = set()
+            
+            def train(self, texts, labels):
+                """
+                Train the Naive Bayes classifier.
+                
+                Args:
+                    texts: List of text documents
+                    labels: List of corresponding labels
+                """
+                # Your implementation here
+                pass
+            
+            def predict(self, text):
+                """
+                Predict the class of a text document.
+                
+                Args:
+                    text: Input text to classify
+                
+                Returns:
+                    predicted_class: Most likely class
+                """
+                # Your implementation here
+                pass
+    
+    data-preprocessing-pipeline:
+      title: "Data Preprocessing Pipeline"
+      description: "Create a comprehensive data preprocessing pipeline including normalization, encoding, and feature selection."
+      difficulty: "MEDIUM"
+      category: "Simple AI Coding"
+      tags:
+        - "Data Preprocessing"
+        - "Feature Engineering"
+        - "Pipeline"
+      estimated-time: "40 min"
+      acceptance-rate: "70%"
+      test-cases:
+        - input: "data with missing values, categorical features"
+          expected: "Clean, normalized, encoded dataset"
+        - input: "mixed data types, outliers present"
+          expected: "Processed data ready for ML"
+      starter-code: |
+        import pandas as pd
+        import numpy as np
+        from sklearn.preprocessing import StandardScaler, LabelEncoder
+        
+        class DataPreprocessor:
+            def __init__(self):
+                self.scalers = {}
+                self.encoders = {}
+            
+            def fit_transform(self, df):
+                """
+                Fit and transform the dataset.
+                
+                Args:
+                    df: Input DataFrame
+                
+                Returns:
+                    processed_df: Cleaned and transformed DataFrame
+                """
+                # Your implementation here
+                pass
+    
+    # ===== AI DEBUGGING CATEGORY (Medium) =====
+    overfitting-detection:
+      title: "Detect and Fix Overfitting"
+      description: "Identify overfitting in a neural network and implement regularization techniques to fix it."
+      difficulty: "MEDIUM"
+      category: "AI Debugging"
+      tags:
+        - "Overfitting"
+        - "Regularization"
+        - "Model Validation"
+      estimated-time: "45 min"
+      acceptance-rate: "58%"
+      test-cases:
+        - input: "Model with high training accuracy, low validation accuracy"
+          expected: "Regularized model with balanced performance"
+        - input: "Complex model on small dataset"
+          expected: "Simplified model or data augmentation"
+      starter-code: |
+        import tensorflow as tf
+        from tensorflow.keras import layers, regularizers
+        
+        def debug_overfitting(model, X_train, y_train, X_val, y_val):
+            """
+            Detect and fix overfitting in the given model.
+            
+            Args:
+                model: Keras model showing overfitting
+                X_train, y_train: Training data
+                X_val, y_val: Validation data
+            
+            Returns:
+                improved_model: Model with reduced overfitting
+            """
+            # Your implementation here
+            pass
+    
+    data-leakage-detection:
+      title: "Data Leakage Detection"
+      description: "Identify and fix data leakage issues in a machine learning pipeline that's showing unrealistic performance."
+      difficulty: "MEDIUM"
+      category: "AI Debugging"
+      tags:
+        - "Data Leakage"
+        - "Feature Engineering"
+        - "Pipeline Debugging"
+      estimated-time: "50 min"
+      acceptance-rate: "45%"
+      test-cases:
+        - input: "Pipeline with 99% accuracy on test set"
+          expected: "Identified leakage source and realistic performance"
+        - input: "Features that shouldn't be available at prediction time"
+          expected: "Clean feature set without future information"
+      starter-code: |
+        import pandas as pd
+        from sklearn.model_selection import train_test_split
+        from sklearn.ensemble import RandomForestClassifier
+        
+        def detect_data_leakage(df, target_col, suspicious_features):
+            """
+            Detect potential data leakage in the dataset.
+            
+            Args:
+                df: Dataset DataFrame
+                target_col: Target column name
+                suspicious_features: List of potentially leaky features
+            
+            Returns:
+                leaky_features: List of confirmed leaky features
+                clean_df: Dataset with leaky features removed
+            """
+            # Your implementation here
+            pass
+    
+    gradient-vanishing-fix:
+      title: "Fix Vanishing Gradients"
+      description: "Debug and fix vanishing gradient problems in a deep neural network."
+      difficulty: "MEDIUM"
+      category: "AI Debugging"
+      tags:
+        - "Vanishing Gradients"
+        - "Deep Learning"
+        - "Optimization"
+      estimated-time: "55 min"
+      acceptance-rate: "42%"
+      test-cases:
+        - input: "Deep network with sigmoid activations"
+          expected: "Network with proper activation functions and initialization"
+        - input: "Network that stops learning after few epochs"
+          expected: "Network that continues learning effectively"
+      starter-code: |
+        import tensorflow as tf
+        from tensorflow.keras import layers, initializers
+        
+        def fix_vanishing_gradients(problematic_model):
+            """
+            Fix vanishing gradient problems in a deep neural network.
+            
+            Args:
+                problematic_model: Model suffering from vanishing gradients
+            
+            Returns:
+                fixed_model: Model with vanishing gradient issues resolved
+            """
+            # Your implementation here
+            pass
+    
+    bias-detection-ml:
+      title: "ML Model Bias Detection"
+      description: "Detect and mitigate bias in a machine learning model that shows unfair performance across different groups."
+      difficulty: "MEDIUM"
+      category: "AI Debugging"
+      tags:
+        - "Bias Detection"
+        - "Fairness"
+        - "Model Ethics"
+      estimated-time: "60 min"
+      acceptance-rate: "38%"
+      test-cases:
+        - input: "Model with different accuracy across demographic groups"
+          expected: "Bias metrics and mitigation strategies"
+        - input: "Hiring algorithm with gender bias"
+          expected: "Fair model with equal opportunity"
+      starter-code: |
+        import pandas as pd
+        import numpy as np
+        from sklearn.metrics import confusion_matrix
+        
+        def detect_model_bias(model, X_test, y_test, sensitive_feature):
+            """
+            Detect bias in model predictions across sensitive attributes.
+            
+            Args:
+                model: Trained ML model
+                X_test: Test features
+                y_test: Test labels
+                sensitive_feature: Column name of sensitive attribute
+            
+            Returns:
+                bias_metrics: Dictionary of bias measurements
+                mitigation_plan: Suggested bias mitigation strategies
+            """
+            # Your implementation here
+            pass
+    
+    feature-importance-debug:
+      title: "Debug Feature Importance"
+      description: "Debug unexpected feature importance results and fix feature engineering issues."
+      difficulty: "MEDIUM"
+      category: "AI Debugging"
+      tags:
+        - "Feature Importance"
+        - "Feature Engineering"
+        - "Model Interpretation"
+      estimated-time: "40 min"
+      acceptance-rate: "52%"
+      test-cases:
+        - input: "Model where irrelevant features have high importance"
+          expected: "Corrected feature engineering and realistic importance"
+        - input: "Important domain features showing low importance"
+          expected: "Fixed preprocessing and proper feature scaling"
+      starter-code: |
+        import pandas as pd
+        from sklearn.ensemble import RandomForestClassifier
+        from sklearn.inspection import permutation_importance
+        
+        def debug_feature_importance(model, X, y, feature_names):
+            """
+            Debug unexpected feature importance results.
+            
+            Args:
+                model: Trained model
+                X: Feature matrix
+                y: Target vector
+                feature_names: List of feature names
+            
+            Returns:
+                corrected_features: Properly engineered features
+                importance_analysis: Detailed importance analysis
+            """
+            # Your implementation here
+            pass
+    
+    # ===== AI SYSTEM DESIGN CATEGORY (Hard) =====
+    recommendation-system-architecture:
+      title: "Scalable Recommendation System"
+      description: "Design and implement a scalable recommendation system architecture that can handle millions of users and items."
+      difficulty: "HARD"
+      category: "AI System Design"
+      tags:
+        - "Recommendation Systems"
+        - "Scalability"
+        - "System Architecture"
+      estimated-time: "90 min"
+      acceptance-rate: "35%"
+      test-cases:
+        - input: "1M users, 100K items, real-time recommendations"
+          expected: "Scalable architecture with sub-second response time"
+        - input: "Cold start problem for new users and items"
+          expected: "Hybrid approach handling cold start scenarios"
+      starter-code: |
+        import numpy as np
+        from abc import ABC, abstractmethod
+        
+        class RecommendationSystem(ABC):
+            def __init__(self):
+                self.user_embeddings = {}
+                self.item_embeddings = {}
+            
+            @abstractmethod
+            def train(self, interactions):
+                """
+                Train the recommendation model.
+                
+                Args:
+                    interactions: User-item interaction data
+                """
+                pass
+            
+            @abstractmethod
+            def recommend(self, user_id, k=10):
+                """
+                Generate top-k recommendations for a user.
+                
+                Args:
+                    user_id: User identifier
+                    k: Number of recommendations
+                
+                Returns:
+                    recommendations: List of recommended item IDs
+                """
+                pass
+            
+            def handle_cold_start(self, user_id=None, item_id=None):
+                """
+                Handle cold start scenarios.
+                """
+                # Your implementation here
+                pass
+    
+    ml-pipeline-orchestration:
+      title: "ML Pipeline Orchestration"
+      description: "Design a robust ML pipeline with data validation, model training, evaluation, and deployment automation."
+      difficulty: "HARD"
+      category: "AI System Design"
+      tags:
+        - "ML Pipeline"
+        - "MLOps"
+        - "Automation"
+      estimated-time: "100 min"
+      acceptance-rate: "28%"
+      test-cases:
+        - input: "Raw data to production model deployment"
+          expected: "End-to-end automated pipeline"
+        - input: "Model retraining on new data"
+          expected: "Automated retraining with validation gates"
+      starter-code: |
+        from abc import ABC, abstractmethod
+        import logging
+        
+        class MLPipelineStage(ABC):
+            @abstractmethod
+            def execute(self, input_data):
+                pass
+            
+            @abstractmethod
+            def validate(self, output_data):
+                pass
+        
+        class MLPipeline:
+            def __init__(self):
+                self.stages = []
+                self.logger = logging.getLogger(__name__)
+            
+            def add_stage(self, stage):
+                """
+                Add a stage to the pipeline.
+                
+                Args:
+                    stage: MLPipelineStage instance
+                """
+                # Your implementation here
+                pass
+            
+            def run(self, input_data):
+                """
+                Execute the entire pipeline.
+                
+                Args:
+                    input_data: Initial input data
+                
+                Returns:
+                    final_output: Pipeline execution result
+                """
+                # Your implementation here
+                pass
+    
+    real-time-ml-serving:
+      title: "Real-time ML Model Serving"
+      description: "Design a high-performance system for serving ML models in real-time with low latency and high throughput."
+      difficulty: "HARD"
+      category: "AI System Design"
+      tags:
+        - "Model Serving"
+        - "Real-time Systems"
+        - "Performance Optimization"
+      estimated-time: "85 min"
+      acceptance-rate: "32%"
+      test-cases:
+        - input: "Model serving 10K requests/second with <100ms latency"
+          expected: "Optimized serving architecture meeting SLA"
+        - input: "Multiple model versions with A/B testing"
+          expected: "Canary deployment system with traffic splitting"
+      starter-code: |
+        import asyncio
+        import time
+        from typing import Dict, Any
+        
+        class ModelServer:
+            def __init__(self):
+                self.models = {}
+                self.model_cache = {}
+                self.request_queue = asyncio.Queue()
+            
+            async def load_model(self, model_id: str, model_path: str):
+                """
+                Load a model for serving.
+                
+                Args:
+                    model_id: Unique model identifier
+                    model_path: Path to model file
+                """
+                # Your implementation here
+                pass
+            
+            async def predict(self, model_id: str, input_data: Dict[str, Any]):
+                """
+                Make prediction using specified model.
+                
+                Args:
+                    model_id: Model to use for prediction
+                    input_data: Input features
+                
+                Returns:
+                    prediction: Model prediction result
+                """
+                # Your implementation here
+                pass
+            
+            async def batch_predict(self, requests):
+                """
+                Handle batch predictions for better throughput.
+                """
+                # Your implementation here
+                pass
+    
+    distributed-training-system:
+      title: "Distributed ML Training"
+      description: "Design a distributed training system for large-scale machine learning models across multiple GPUs/nodes."
+      difficulty: "HARD"
+      category: "AI System Design"
+      tags:
+        - "Distributed Training"
+        - "Scalability"
+        - "GPU Computing"
+      estimated-time: "110 min"
+      acceptance-rate: "25%"
+      test-cases:
+        - input: "Train large model on 8 GPUs with data parallelism"
+          expected: "Efficient distributed training with linear speedup"
+        - input: "Model too large for single GPU memory"
+          expected: "Model parallelism strategy"
+      starter-code: |
+        import torch
+        import torch.distributed as dist
+        from torch.nn.parallel import DistributedDataParallel
+        
+        class DistributedTrainer:
+            def __init__(self, model, rank, world_size):
+                self.model = model
+                self.rank = rank
+                self.world_size = world_size
+                self.device = torch.device(f'cuda:{rank}')
+            
+            def setup_distributed(self):
+                """
+                Initialize distributed training environment.
+                """
+                # Your implementation here
+                pass
+            
+            def train_epoch(self, dataloader, optimizer):
+                """
+                Train one epoch with distributed data parallel.
+                
+                Args:
+                    dataloader: Distributed data loader
+                    optimizer: Model optimizer
+                
+                Returns:
+                    epoch_loss: Average loss for the epoch
+                """
+                # Your implementation here
+                pass
+            
+            def synchronize_gradients(self):
+                """
+                Synchronize gradients across all processes.
+                """
+                # Your implementation here
+                pass
+    
+    feature-store-design:
+      title: "Feature Store Architecture"
+      description: "Design a feature store system for managing, versioning, and serving ML features across multiple teams and models."
+      difficulty: "HARD"
+      category: "AI System Design"
+      tags:
+        - "Feature Store"
+        - "Data Management"
+        - "ML Infrastructure"
+      estimated-time: "95 min"
+      acceptance-rate: "30%"
+      test-cases:
+        - input: "Multiple teams sharing features with different SLAs"
+          expected: "Scalable feature store with access control"
+        - input: "Real-time and batch feature serving"
+          expected: "Hybrid architecture supporting both modes"
+      starter-code: |
+        from abc import ABC, abstractmethod
+        from typing import Dict, List, Any
+        import pandas as pd
+        
+        class FeatureStore(ABC):
+            def __init__(self):
+                self.feature_registry = {}
+                self.feature_cache = {}
+            
+            @abstractmethod
+            def register_feature(self, feature_name: str, feature_config: Dict):
+                """
+                Register a new feature in the store.
+                
+                Args:
+                    feature_name: Unique feature identifier
+                    feature_config: Feature configuration and metadata
+                """
+                pass
+            
+            @abstractmethod
+            def get_features(self, feature_names: List[str], entity_ids: List[str]):
+                """
+                Retrieve features for given entities.
+                
+                Args:
+                    feature_names: List of feature names to retrieve
+                    entity_ids: List of entity identifiers
+                
+                Returns:
+                    features: DataFrame with requested features
+                """
+                pass
+            
+            def compute_feature(self, feature_name: str, input_data: pd.DataFrame):
+                """
+                Compute feature values from raw data.
+                """
+                # Your implementation here
+                pass
+    
+    # ===== ADVANCED AI CHALLENGES CATEGORY (Expert) =====
+    transformer-from-scratch:
+      title: "Transformer Architecture Implementation"
+      description: "Implement a complete Transformer model from scratch including multi-head attention, positional encoding, and layer normalization."
+      difficulty: "EXPERT"
+      category: "Advanced AI Challenges"
+      tags:
+        - "Transformers"
+        - "Attention Mechanism"
+        - "Deep Learning"
+      estimated-time: "150 min"
+      acceptance-rate: "15%"
+      test-cases:
+        - input: "Sequence-to-sequence translation task"
+          expected: "Working transformer with attention visualization"
+        - input: "Text generation with positional encoding"
+          expected: "Coherent text generation with proper attention patterns"
+      starter-code: |
+        import torch
+        import torch.nn as nn
+        import torch.nn.functional as F
+        import math
+        
+        class MultiHeadAttention(nn.Module):
+            def __init__(self, d_model, num_heads):
+                super().__init__()
+                self.d_model = d_model
+                self.num_heads = num_heads
+                self.d_k = d_model // num_heads
+                
+                # Your implementation here
+                pass
+            
+            def forward(self, query, key, value, mask=None):
+                """
+                Compute multi-head attention.
+                
+                Args:
+                    query, key, value: Input tensors
+                    mask: Optional attention mask
+                
+                Returns:
+                    output: Attention output
+                    attention_weights: Attention weights for visualization
+                """
+                # Your implementation here
+                pass
+        
+        class TransformerBlock(nn.Module):
+            def __init__(self, d_model, num_heads, d_ff, dropout=0.1):
+                super().__init__()
+                # Your implementation here
+                pass
+            
+            def forward(self, x, mask=None):
+                # Your implementation here
+                pass
+        
+        class Transformer(nn.Module):
+            def __init__(self, vocab_size, d_model, num_heads, num_layers, d_ff, max_seq_len):
+                super().__init__()
+                # Your implementation here
+                pass
+            
+            def forward(self, x, mask=None):
+                # Your implementation here
+                pass
+    
+    gan-implementation:
+      title: "Generative Adversarial Network"
+      description: "Implement a GAN from scratch with proper training dynamics, loss functions, and techniques to avoid mode collapse."
+      difficulty: "EXPERT"
+      category: "Advanced AI Challenges"
+      tags:
+        - "GANs"
+        - "Generative Models"
+        - "Adversarial Training"
+      estimated-time: "140 min"
+      acceptance-rate: "12%"
+      test-cases:
+        - input: "MNIST digit generation"
+          expected: "High-quality generated digits with stable training"
+        - input: "CIFAR-10 image generation"
+          expected: "Diverse, realistic images without mode collapse"
+      starter-code: |
+        import torch
+        import torch.nn as nn
+        import torch.optim as optim
+        
+        class Generator(nn.Module):
+            def __init__(self, latent_dim, img_channels, img_size):
+                super().__init__()
+                # Your implementation here
+                pass
+            
+            def forward(self, z):
+                """
+                Generate images from noise.
+                
+                Args:
+                    z: Random noise tensor
+                
+                Returns:
+                    generated_images: Generated image tensor
+                """
+                # Your implementation here
+                pass
+        
+        class Discriminator(nn.Module):
+            def __init__(self, img_channels, img_size):
+                super().__init__()
+                # Your implementation here
+                pass
+            
+            def forward(self, x):
+                """
+                Discriminate between real and fake images.
+                
+                Args:
+                    x: Input image tensor
+                
+                Returns:
+                    validity: Probability of image being real
+                """
+                # Your implementation here
+                pass
+        
+        class GAN:
+            def __init__(self, latent_dim, img_channels, img_size):
+                self.generator = Generator(latent_dim, img_channels, img_size)
+                self.discriminator = Discriminator(img_channels, img_size)
+                # Your implementation here
+                pass
+            
+            def train_step(self, real_images):
+                """
+                Perform one training step for both generator and discriminator.
+                
+                Args:
+                    real_images: Batch of real images
+                
+                Returns:
+                    g_loss, d_loss: Generator and discriminator losses
+                """
+                # Your implementation here
+                pass
+    
+    neural-architecture-search:
+      title: "Neural Architecture Search"
+      description: "Implement a neural architecture search algorithm to automatically discover optimal network architectures for a given task."
+      difficulty: "EXPERT"
+      category: "Advanced AI Challenges"
+      tags:
+        - "Neural Architecture Search"
+        - "AutoML"
+        - "Optimization"
+      estimated-time: "160 min"
+      acceptance-rate: "10%"
+      test-cases:
+        - input: "Image classification task with limited compute budget"
+          expected: "Efficient architecture with competitive accuracy"
+        - input: "Custom dataset with specific constraints"
+          expected: "Tailored architecture meeting all constraints"
+      starter-code: |
+        import torch
+        import torch.nn as nn
+        from typing import List, Dict, Tuple
+        
+        class SearchSpace:
+            def __init__(self):
+                self.operations = ['conv3x3', 'conv5x5', 'maxpool', 'avgpool', 'skip']
+                self.channels = [16, 32, 64, 128]
+                self.depths = [2, 3, 4, 5]
+            
+            def sample_architecture(self):
+                """
+                Sample a random architecture from the search space.
+                
+                Returns:
+                    architecture: Dictionary describing the architecture
+                """
+                # Your implementation here
+                pass
+        
+        class ArchitectureEvaluator:
+            def __init__(self, dataset, device):
+                self.dataset = dataset
+                self.device = device
+            
+            def evaluate(self, architecture: Dict) -> float:
+                """
+                Evaluate an architecture's performance.
+                
+                Args:
+                    architecture: Architecture description
+                
+                Returns:
+                    score: Performance score (higher is better)
+                """
+                # Your implementation here
+                pass
+        
+        class NeuralArchitectureSearch:
+            def __init__(self, search_space, evaluator):
+                self.search_space = search_space
+                self.evaluator = evaluator
+                self.best_architecture = None
+                self.best_score = 0
+            
+            def search(self, num_iterations: int) -> Dict:
+                """
+                Perform neural architecture search.
+                
+                Args:
+                    num_iterations: Number of search iterations
+                
+                Returns:
+                    best_architecture: Best found architecture
+                """
+                # Your implementation here
+                pass
+    
+    reinforcement-learning-agent:
+      title: "Deep Q-Network Agent"
+      description: "Implement a Deep Q-Network (DQN) agent with experience replay, target networks, and epsilon-greedy exploration."
+      difficulty: "EXPERT"
+      category: "Advanced AI Challenges"
+      tags:
+        - "Reinforcement Learning"
+        - "Deep Q-Learning"
+        - "Game AI"
+      estimated-time: "130 min"
+      acceptance-rate: "18%"
+      test-cases:
+        - input: "CartPole environment"
+          expected: "Agent achieving 200+ average reward"
+        - input: "Atari game environment"
+          expected: "Agent learning effective game strategies"
+      starter-code: |
+        import torch
+        import torch.nn as nn
+        import torch.optim as optim
+        import random
+        from collections import deque
+        import numpy as np
+        
+        class DQN(nn.Module):
+            def __init__(self, state_size, action_size, hidden_size=128):
+                super().__init__()
+                # Your implementation here
+                pass
+            
+            def forward(self, state):
+                """
+                Forward pass through the network.
+                
+                Args:
+                    state: Environment state
+                
+                Returns:
+                    q_values: Q-values for all actions
+                """
+                # Your implementation here
+                pass
+        
+        class ReplayBuffer:
+            def __init__(self, capacity):
+                self.buffer = deque(maxlen=capacity)
+            
+            def push(self, state, action, reward, next_state, done):
+                """
+                Add experience to replay buffer.
+                """
+                # Your implementation here
+                pass
+            
+            def sample(self, batch_size):
+                """
+                Sample batch of experiences.
+                """
+                # Your implementation here
+                pass
+        
+        class DQNAgent:
+            def __init__(self, state_size, action_size, lr=1e-3):
+                self.state_size = state_size
+                self.action_size = action_size
+                self.epsilon = 1.0
+                self.epsilon_decay = 0.995
+                self.epsilon_min = 0.01
+                
+                # Your implementation here
+                pass
+            
+            def act(self, state):
+                """
+                Choose action using epsilon-greedy policy.
+                
+                Args:
+                    state: Current environment state
+                
+                Returns:
+                    action: Selected action
+                """
+                # Your implementation here
+                pass
+            
+            def train(self, batch_size=32):
+                """
+                Train the DQN using experience replay.
+                """
+                # Your implementation here
+                pass
+    
+    computer-vision-pipeline:
+      title: "End-to-End Computer Vision Pipeline"
+      description: "Build a complete computer vision pipeline including data augmentation, custom CNN architecture, transfer learning, and model optimization."
+      difficulty: "EXPERT"
+      category: "Advanced AI Challenges"
+      tags:
+        - "Computer Vision"
+        - "CNN"
+        - "Transfer Learning"
+      estimated-time: "145 min"
+      acceptance-rate: "14%"
+      test-cases:
+        - input: "Custom dataset with 50 classes, limited data"
+          expected: "High-accuracy model with proper generalization"
+        - input: "Real-time inference requirements"
+          expected: "Optimized model meeting latency constraints"
+      starter-code: |
+        import torch
+        import torch.nn as nn
+        import torchvision.transforms as transforms
+        from torch.utils.data import DataLoader, Dataset
+        
+        class CustomDataset(Dataset):
+            def __init__(self, data_path, transform=None):
+                # Your implementation here
+                pass
+            
+            def __len__(self):
+                # Your implementation here
+                pass
+            
+            def __getitem__(self, idx):
+                # Your implementation here
+                pass
+        
+        class CustomCNN(nn.Module):
+            def __init__(self, num_classes, input_channels=3):
+                super().__init__()
+                # Your implementation here
+                pass
+            
+            def forward(self, x):
+                # Your implementation here
+                pass
+        
+        class CVPipeline:
+            def __init__(self, num_classes, pretrained_model=None):
+                self.num_classes = num_classes
+                self.model = None
+                self.transforms = None
+                # Your implementation here
+                pass
+            
+            def setup_data_augmentation(self):
+                """
+                Setup data augmentation pipeline.
+                """
+                # Your implementation here
+                pass
+            
+            def build_model(self, use_transfer_learning=True):
+                """
+                Build the CNN model with optional transfer learning.
+                
+                Args:
+                    use_transfer_learning: Whether to use pretrained weights
+                """
+                # Your implementation here
+                pass
+            
+            def train(self, train_loader, val_loader, epochs=50):
+                """
+                Train the model with validation.
+                
+                Args:
+                    train_loader: Training data loader
+                    val_loader: Validation data loader
+                    epochs: Number of training epochs
+                
+                Returns:
+                    training_history: Dictionary with training metrics
+                """
+                # Your implementation here
+                pass
+            
+            def optimize_for_inference(self):
+                """
+                Optimize model for faster inference.
+                """
+                # Your implementation here
+                pass
+    
+    # ===== EXISTING PROBLEMS FROM APPLICATION.PROPERTIES =====
+    sentiment-analysis:
+      title: "Sentiment Analysis"
+      description: "Build a sentiment analysis model to classify text as positive, negative, or neutral. Learn about natural language processing and text classification."
+      difficulty: "MEDIUM"
+      category: "NLP"
+      tags:
+        - "Sentiment Analysis"
+        - "Text Classification"
+        - "NLP"
+      estimated-time: "60 min"
+      acceptance-rate: "72%"
+      test-cases:
+        - input: "I love this product!"
+          expected: "positive"
+        - input: "This is terrible"
+          expected: "negative"
+      starter-code: |
+        import pandas as pd
+        from sklearn.feature_extraction.text import TfidfVectorizer
+        from sklearn.model_selection import train_test_split
+        from sklearn.linear_model import LogisticRegression
+        
+        def build_sentiment_analyzer(texts, labels):
+            """
+            Build a sentiment analysis model.
+            
+            Args:
+                texts: List of text samples
+                labels: List of corresponding sentiment labels
+            
+            Returns:
+                model: Trained sentiment analysis model
+                vectorizer: Fitted TF-IDF vectorizer
+            """
+            # Your implementation here
+            pass
+    
+    recommendation-system:
+      title: "Recommendation System"
+      description: "Create a collaborative filtering recommendation system. Implement both user-based and item-based approaches."
+      difficulty: "HARD"
+      category: "Machine Learning"
+      tags:
+        - "Collaborative Filtering"
+        - "Recommendation"
+        - "Matrix Factorization"
+      estimated-time: "90 min"
+      acceptance-rate: "58%"
+      test-cases:
+        - input: "User-item rating matrix"
+          expected: "Top-N recommendations for each user"
+        - input: "Sparse rating data"
+          expected: "Recommendations handling cold start problem"
+      starter-code: |
+        import numpy as np
+        import pandas as pd
+        from sklearn.metrics.pairwise import cosine_similarity
+        
+        def collaborative_filtering(ratings_matrix, user_id, n_recommendations=5):
+            """
+            Generate recommendations using collaborative filtering.
+            
+            Args:
+                ratings_matrix: User-item rating matrix
+                user_id: Target user for recommendations
+                n_recommendations: Number of recommendations to generate
+            
+            Returns:
+                recommendations: List of recommended item IDs
+            """
+            # Your implementation here
+            pass
+    
+    image-classification:
+      title: "Image Classification"
+      description: "Implement a convolutional neural network to classify images into different categories. Learn about computer vision and deep learning fundamentals."
+      difficulty: "HARD"
+      category: "Computer Vision"
+      tags:
+        - "CNN"
+        - "Deep Learning"
+        - "Image Processing"
+      estimated-time: "90 min"
+      acceptance-rate: "45%"
+      test-cases:
+        - input: "10 classes, input shape (32, 32, 3)"
+          expected: "Model with 10 output classes"
+        - input: "5 classes, input shape (224, 224, 3)"
+          expected: "Model with 5 output classes"
+      starter-code: |
+        import tensorflow as tf
+        from tensorflow.keras.applications import VGG16
+        from tensorflow.keras.layers import Dense, GlobalAveragePooling2D
+        from tensorflow.keras.models import Model
+        
+        def create_image_classifier(num_classes):
+            """
+            Create an image classification model using transfer learning.
+            
+            Args:
+                num_classes: Number of classes to classify
+            
+            Returns:
+                model: Compiled Keras model
+            """
+            # Your implementation here
+            pass
+    
+    chatbot-nlp:
+      title: "Chatbot Development"
+      description: "Create an intelligent chatbot using natural language processing. Implement intent recognition and response generation."
+      difficulty: "HARD"
+      category: "NLP"
+      tags:
+        - "Chatbot"
+        - "Intent Recognition"
+        - "NLP"
+      estimated-time: "80 min"
+      acceptance-rate: "55%"
+      test-cases:
+        - input: "Hello, how are you?"
+          expected: "Appropriate greeting response"
+        - input: "What's the weather like?"
+          expected: "Weather-related response or request for location"
+      starter-code: |
+        import re
+        import random
+        from sklearn.feature_extraction.text import TfidfVectorizer
+        from sklearn.metrics.pairwise import cosine_similarity
+        
+        class Chatbot:
+            def __init__(self):
+                self.intents = {}
+                self.responses = {}
+                self.vectorizer = TfidfVectorizer()
+            
+            def train(self, training_data):
+                """
+                Train the chatbot on intent-response pairs.
+                
+                Args:
+                    training_data: Dictionary with intents and responses
+                """
+                # Your implementation here
+                pass
+            
+            def predict_intent(self, user_input):
+                """
+                Predict the intent of user input.
+                
+                Args:
+                    user_input: User's message
+                
+                Returns:
+                    intent: Predicted intent
+                """
+                # Your implementation here
+                pass
+            
+            def generate_response(self, user_input):
+                """
+                Generate appropriate response to user input.
+                
+                Args:
+                    user_input: User's message
+                
+                Returns:
+                    response: Bot's response
+                """
+                # Your implementation here
+                pass
+    
+    neural-style-transfer:
+      title: "Neural Style Transfer"
+      description: "Implement neural style transfer to apply artistic styles to images. Learn about deep learning for creative applications."
+      difficulty: "EXPERT"
+      category: "Computer Vision"
+      tags:
+        - "Style Transfer"
+        - "Deep Learning"
+        - "Creative AI"
+      estimated-time: "120 min"
+      acceptance-rate: "38%"
+      test-cases:
+        - input: "Content image + Van Gogh style"
+          expected: "Stylized image with Van Gogh characteristics"
+        - input: "Portrait + Picasso style"
+          expected: "Portrait with Picasso-like artistic style"
+      starter-code: |
+        import tensorflow as tf
+        from tensorflow.keras.applications import VGG19
+        from tensorflow.keras.preprocessing import image
+        import numpy as np
+        
+        def neural_style_transfer(content_image, style_image, iterations=1000):
+            """
+            Perform neural style transfer.
+            
+            Args:
+                content_image: Content image array
+                style_image: Style image array
+                iterations: Number of optimization iterations
+            
+            Returns:
+                stylized_image: Result of style transfer
+            """
+            # Your implementation here
+            pass
+        
+        def compute_content_loss(content_features, generated_features):
+            """
+            Compute content loss between content and generated images.
+            """
+            # Your implementation here
+            pass
+        
+        def compute_style_loss(style_features, generated_features):
+            """
+            Compute style loss using Gram matrices.
+            """
+            # Your implementation here
+            pass

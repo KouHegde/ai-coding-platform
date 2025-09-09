@@ -1,0 +1,88 @@
+version: '3.8'
+
+## Fix 2: Update Docker Compose File
+
+Remove the obsolete `version` line from your docker-compose.yml:
+```yaml
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:7.0
+    container_name: ai-coding-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password123
+      MONGO_INITDB_DATABASE: aicodingdb
+    volumes:
+      - mongodb_data:/data/db
+      - ./mongo-init:/docker-entrypoint-initdb.d
+    networks:
+      - ai-coding-network
+
+  # Backend Spring Boot Application
+  backend:
+    build:
+      context: ./backend/ai-coding-platform
+      dockerfile: Dockerfile
+    container_name: ai-coding-backend
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SPRING_DATA_MONGODB_URI=mongodb://admin:password123@mongodb:27017/aicodingdb?authSource=admin
+      - JWT_SECRET=aicoding_platform_secret_key_should_be_very_long_and_secure_in_production
+      - CORS_ALLOWED_ORIGINS=http://localhost:3000,http://frontend:3000
+    depends_on:
+      - mongodb
+    networks:
+      - ai-coding-network
+    volumes:
+      - ./backend/ai-coding-platform/logs:/app/logs
+
+  # Frontend React Application
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: ai-coding-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_BASE_URL=http://localhost:8080
+      - REACT_APP_ENVIRONMENT=docker
+    depends_on:
+      - backend
+    networks:
+      - ai-coding-network
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
+      - /app/node_modules
+
+  # Redis (Optional - for caching if needed later)
+  redis:
+    image: redis:7.2-alpine
+    container_name: ai-coding-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    networks:
+      - ai-coding-network
+
+volumes:
+  mongodb_data:
+    driver: local
+  redis_data:
+    driver: local
+
+networks:
+  ai-coding-network:
+    driver: bridge
